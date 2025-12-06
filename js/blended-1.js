@@ -137,5 +137,21 @@ function getNumbers(min, max) {
 }
 getNumbers(0, 10);
 
+// №8  Напишіть функцію mint(a, b), яка приймає 2 числа і повертає меньше з них.
+// Потрібно додати перевірку, що функція отримує саме числа, в іншому випадку
+// повертати з функції рядок - 'Not a number!'
 
+function mint(a, b) {
+    if (typeof a === 'number' && typeof b === 'number') {
+        if (a < b) {
+            return `Найменше число: ${a}`;
+        }
+
+    } else {
+        return 'Цe не число!';
+    }
+
+}
+console.log(mint(5, 10)); // 5
+console.log(mint('5', '10')); // 'Not a number!'
 
