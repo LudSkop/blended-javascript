@@ -104,8 +104,38 @@ console.log(typeof(end));
 
 
 //№6 Використайте цикл while, щоб вивести в console всі числа від 0 до 20 включно.
+let index = 0;
 let el = 0;
 while (el <= 20) {
-    console.log(el);
+    console.log(`index: ${index}, el: ${el}`);
     el += 1;
+    index += 1;
+    
 }
+
+//  №7  Напишіть функцію getNumbers(min, max), що приймає 2 параметри - 
+// мінімальне і максимальне число відповідно.
+// Напишіть цикл всередині функції, який виводить у консоль
+// всі числа від max до min за спаданням.
+// Окрім цього, підрахуйте суму всіх парних чисел в цьому циклі
+// і поверніть її з функції.
+
+function getNumbers(min, max) {
+    let sumElements = 0;
+    for (let value = max; value >= min; value --) {
+       
+        console.log('value', value);
+        if (value % 2 === 0){
+            sumElements += value;
+            console.log('sumElements', sumElements);
+            
+        } 
+        
+    }
+    return sumElements;
+
+}
+getNumbers(0, 10);
+
+
+
