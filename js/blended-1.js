@@ -155,3 +155,20 @@ function mint(a, b) {
 console.log(mint(5, 10)); // 5
 console.log(mint('5', '10')); // 'Not a number!'
 
+// №9  Напишіть функцію isAdult(age), яка  приймає число - вік користувача і повертає true, 
+// якщо параметр age більше чи дорівнює 18.
+// В іншому випадку вона запитує підтвердження через confirm 
+// і повертає його результат (true/false).
+
+function isEdult(age) {
+    if (age >= 18){
+        return true;
+    } else {
+        return confirm("Вам є 18 років?");
+        
+    }
+
+}
+console.log(isEdult(100) );
+console.log(isEdult(50) );
+console.log(isEdult(17) );
