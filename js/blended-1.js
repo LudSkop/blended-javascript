@@ -94,7 +94,7 @@ let minutes = String(minutLeft).padStart(2, '0');
 let end = `${hours} : ${minutes}`;
 
 alert(end);
-console.log(end);
+console.log(typeof(end));
 
 
 //Math.floor(totalMinutes / 60) — кількість годин
@@ -103,3 +103,9 @@ console.log(end);
 
 
 
+//№6 Використайте цикл while, щоб вивести в console всі числа від 0 до 20 включно.
+let el = 0;
+while (el <= 20) {
+    console.log(el);
+    el += 1;
+}
