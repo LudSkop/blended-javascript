@@ -169,7 +169,7 @@ function isEdult(age) {
     }
 
 }
-console.log(isEdult(100) );
+console.log(isEdult(2) );
 console.log(isEdult(50) );
 console.log(isEdult(17) );
 
@@ -195,5 +195,57 @@ function fizzBuzz(num){
 
 }
 fizzBuzz(5);
-fizzBuzz(13);
-fizzBuzz(15);
+fizzBuzz(1);
+fizzBuzz(3);
+
+
+// №11 Напиши функцію printEvenOdd(num), яка:
+//перебирає всі числа від 1 до num
+//якщо число парне → виводить "even: X"
+//якщо число непарне → виводить "odd: X"
+
+function printEvenOdd(num) {
+    for (let i = 1; i <= num; i ++){
+        if (i % 2 === 0) {
+            console.log(`even: ${i}`);
+
+        } else {
+            console.log(`odd: ${i}`);
+        }
+
+    }
+
+}
+printEvenOdd(1);
+printEvenOdd(2);
+printEvenOdd(3);
+
+
+
+// №12 Функція createReversedArray() може приймати довільну кількість аргументів. 
+// Доповни код функції так, щоб вона повертала масив усіх аргументів, 
+// але в масиві вони повинні йти у зворотному порядку. 
+// Тобто, при виклику createReversedArray(1, 2, 3), функція має повернути масив [3, 2, 1]. 
+// Використовуй цикл або метод масиву toReversed(), який застосовується до масиву 
+// і результатом роботи повертає новий масив з елементами у зворотньому порядку.
+function createReversedArray() {
+    let revers = Array.from(arguments);
+    let result = revers.toReversed();
+    return `числа y звортньому порядку:  ${result}`;
+    
+
+}
+
+//function createReversedArray() {
+  //let res = Array.from(arguments);
+  //let revers = [];
+  //for (let el = res.length -1; el > 0; el --){
+  //  revers.push(res[el]);
+    
+  //}
+  //return `числа y звортньому порядку:  ${revers}`;
+//}
+
+console.log(createReversedArray(12, 85, 37, 4));
+console.log(createReversedArray(1, 2, 3, 4));
+
