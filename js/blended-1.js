@@ -269,3 +269,47 @@ for ( const key of colors){
 }
 console.log("hexColors:", hexColors);
 console.log("rgbColors:", rgbColors);
+
+const books = [
+  { title: "The Last Kingdom", author: "Bernard Cornwell" },
+  { title: "Beside Still Waters", author: "Robert Sheckley" },
+  { title: "The Tell-Tale Heart", author: "Edgar Allan Poe" }
+];
+
+const authorToSearchFor = "Robert Sheckley";
+
+for (const book of books) {
+	if(book.author === authorToSearchFor) {
+		console.log(book);
+		console.log(book.title)
+		console.log(book.rating)
+	}
+}
+//  № 14.  Функція getProductPrice(productName) приймає один параметр productName - назва продукту. Функція містить масив об'єктів products з такими властивостями, як name — ім'я товару, price — ціна і quantity — кількість товару на складі.
+//Доповни код функції так, щоб вона шукала об'єкт продукту з певним ім'ям (властивість name) в масиві products і повертала його ціну (властивість price). Якщо продукт з такою назвою не знайдений, функція повинна повертати null.
+
+
+function getProductPrice(productName) {
+  const products = [
+    { name: "Radar", price: 1300, quantity: 4 },
+    { name: "Scanner", price: 2700, quantity: 3 },
+    { name: "Droid", price: 400, quantity: 7 },
+    { name: "Grip", price: 1200, quantity: 9 },
+  ];
+  for (const title of products){
+    if ( title.name === productName){
+      return `це ціна за одну одиницю: ${title.price}`;
+      
+    } else {
+
+    };
+    
+    
+   
+  }
+  return null;
+}
+console.log(getProductPrice("Grip"));
+console.log(getProductPrice("Droid"));
+console.log(getProductPrice("Radarr"));
+console.log(getProductPrice("Scanner"));
