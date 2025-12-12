@@ -369,3 +369,55 @@ console.log(calculateTotalPrice("Radar"));
 console.log(calculateTotalPrice("Grip"));
 console.log(calculateTotalPrice("Scanner"));
 console.log(calculateTotalPrice("Droid"));
+
+//  №16.  Об'єкт atTheOldToad має наступні властивості:
+//potions — масив об'єктів зілль
+//getPotions() — метод, який повертає значення властивості potions
+//updatePotionName() — метод, який приймає два параметра рядків oldName і newName
+//Доповни метод updatePotionName(oldName, newName) таким чином, щоб він оновлював назву зілля з oldName на newName в масиві зілля у властивості potions.
+
+
+const atTheOldToad = {
+  potions: [
+    { name: "Speed potion", price: 460 },
+    { name: "Stone skin", price: 520 },
+  ],
+  getPotions() {
+    return this.potions;
+  },
+  updatePotionName(oldName, newName) {
+    for (const el of this.potions)
+      if (el.name === oldName){
+        el.name = newName;
+        
+      }
+  },
+};
+console.log(atTheOldToad.getPotions());
+atTheOldToad.updatePotionName("Stone skin", "Invulnerability potion");
+console.log(atTheOldToad.getPotions());
+atTheOldToad.updatePotionName("Speed potion", "Polymorth");
+console.log(atTheOldToad.getPotions());
+
+//. №17.  
+//Функція addOverNum() приймає довільну кількість аргументів чисел.
+
+//Доповни код функції таким чином, щоб вона обчислювала суму тільки тих аргументів, які більші за задане число. Це число завжди буде передано першим аргументом.
+
+//Для вирішення цього завдання тобі потрібно зробити наступне:
+
+//Перший параметр value повинен представляти задане число, а решта аргументів повинні бути зібрані за допомогою синтаксису (...args)
+function addOverNum(value, ...rest) {
+  let total = 0;
+  for (const num of rest){
+    if (value < num) {
+      total += num;
+      
+    }
+    
+  }
+  return total;
+}
+console.log(addOverNum(50, 15, 27));
+console.log(addOverNum(10, 12, 4, 11, 48, 10, 8));//
+console.log(addOverNum(15, 32, 6, 13, 19, 8));//
