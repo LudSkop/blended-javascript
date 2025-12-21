@@ -421,3 +421,39 @@ function addOverNum(value, ...rest) {
 console.log(addOverNum(50, 15, 27));
 console.log(addOverNum(10, 12, 4, 11, 48, 10, 8));//
 console.log(addOverNum(15, 32, 6, 13, 19, 8));//
+
+
+function getExtremeScores(scores) {
+  
+  let resMax = Math.max(...scores);
+  let resMin = Math.min(...scores);
+  return  {
+    max: resMax,
+    min: resMin,
+  }
+}
+
+console.log(getExtremeScores([1, 2, 3, 4, 5]));
+console.log(getExtremeScores([100, 2, 3, 4, 5]));
+console.log(getExtremeScores([-10, -20, -3, -4, -5]));
+
+
+
+// №18.
+//У змінних firstGroupScores, secondGroupScores і thirdGroupScores зберігаються результати тестування окремих груп. Використовуючи розпилення, доповни код таким чином, щоб:
+
+//У змінній allScores зберігався масив всіх результатів від першої до третьої групи включно.
+//У змінній bestScore був найвищий загальний бал.
+//У змінній worstScore був найнижчий загальний бал.
+
+const firstGroupScores = [64, 42, 93];
+const secondGroupScores = [89, 14, 51, 26];
+const thirdGroupScores = [29, 47, 18, 97, 81];
+
+const allScores = [...firstGroupScores, ...secondGroupScores, ...thirdGroupScores];
+const bestScore = Math.max(...allScores);
+const worstScore = Math.min(...allScores);
+
+console.log(allScores);
+console.log(bestScore);
+console.log(worstScore);
