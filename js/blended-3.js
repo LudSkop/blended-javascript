@@ -48,3 +48,38 @@ class StringBuilder {
   builde.padBoth('pusa + alisa');
   //console.log(builde.getValue());
 
+
+
+
+
+const books = [
+  {
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    rating: 8.38,
+  },
+  {
+    title: "Beside Still Waters",
+    author: "Robert Sheckley",
+    rating: 8.51,
+  },
+  {
+    title: "The Tell-Tale Heart",
+    author: "Edgar Allan Poe",
+    rating: 7.75,
+  },
+  { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
+  {
+    title: "The Dreams in the Witch House",
+    author: "Howard Lovecraft",
+    rating: 8.67,
+  },
+];
+const MIN_BOOK_RATING = 8;
+
+const names = books
+  .filter((book => book.rating > MIN_BOOK_RATING ))
+  .toSorted((a,b)=> a.author.localeCompare(b.author))
+  .map(book => book.author)
+  console.log(names);
+
