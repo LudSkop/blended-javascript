@@ -79,7 +79,8 @@ const MIN_BOOK_RATING = 8;
 
 const names = books
   .filter((book => book.rating > MIN_BOOK_RATING ))
-  .toSorted((a,b)=> a.author.localeCompare(b.author))
   .map(book => book.author)
+  .toSorted((a,b)=> a.localeCompare(b));
+  
   console.log(names);
 
