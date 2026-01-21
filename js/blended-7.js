@@ -75,7 +75,7 @@ descendant.addEventListener("click", markupClick);
 function markupClick(event){
   console.log("target:", event.target);
   console.log("currentTarget:", event.currentTarget);
-  const color = event.currentTarget.dataset.color;
+  const color = event.target.dataset.color;
   event.stopPropagation();
   document.body.style.backgroundColor = color;
   console.log("колір кубика: ", color);
