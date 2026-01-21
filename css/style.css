@@ -1,0 +1,56 @@
+
+
+
+body {
+  margin: 16px;
+  font-family: sans-serif;
+}
+
+.list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.list-item {
+  padding: 8px;
+  border-width: 2px;
+  border-style: dashed;
+}
+
+.list-item:nth-child(even) {
+  border-color: tomato;
+}
+
+.list-item:nth-child(odd) {
+  border-color: blueviolet;
+}
+
+.list-item:not(:last-child) {
+  margin-bottom: 8px;
+}
+#parent,
+#child,
+#descendant {
+  margin: 16px;
+  padding: 16px;
+  border: 4px solid #212121;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+#parent {
+  background-color: red;
+}
+
+#child {
+  background-color: blue;
+}
+
+#descendant {
+  background-color: yellow;
+}
+
