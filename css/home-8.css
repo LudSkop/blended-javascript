@@ -1,0 +1,29 @@
+body {
+    background-color: aquamarine;
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 0;
+}
+.gallery-item {
+    width: calc((100% - 48px) / 3);
+  
+   
+   
+}
+
+
+
