@@ -81,3 +81,30 @@ const galleryMarkup = images.map(image => `<li class="gallery-item">
 
 galleryContainer.insertAdjacentHTML("beforeend",galleryMarkup);
 console.log(galleryContainer);
+
+galleryContainer.addEventListener("click", event => {
+    const link = event.target.closest("a");
+    if (!link) {
+        return;
+
+    };
+    event.preventDefault();
+
+    const img = event.target.closest(".gallery-image");
+    if (!img) return;
+    const originalImageSrc = img.dataset.source;
+    
+    console.log(originalImageSrc);
+    console.log(event.target);
+    const instance = basicLightbox.create(`
+	 <img src="${originalImageSrc}"/>
+    `)
+    instance.show();
+    console.log(basicLightbox);
+});
+
+	
+
+
+
+
