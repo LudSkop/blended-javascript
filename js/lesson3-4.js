@@ -87,7 +87,7 @@ const numberContainer = document.createElement('div');
 numberContainer.classList.add('number-container');
 console.log(numberContainer);
 document.body.append(numberContainer);
-for(let i = 0;  i < 100; i++ ){
+for(let i = 0;  i < 10; i++ ){
     const number = randomNumber();
     
     const div = document.createElement ('div');
@@ -135,9 +135,121 @@ for(let i = 0;  i < 100; i++ ){
 //numberContainer.appendChild(fragment);
 
 
+ //№ 3 : Використовуй шаблон розмітки з файлу html та напиши наступний функціонал:
+ // При кліку на кнопку "Зменшити" квадрат стає меньшим на 20 пікселів, 
+ // При кліку на кнопку "Збільшити" - квадрат стає більшим на 20 пікселів.
+
+const boxElement = document.querySelector('.box');
+const decreaseBtn = document.querySelector('#decrease');
+const increaseBtn = document.querySelector('#increase');
+decreaseBtn.addEventListener("click", handleClicl);
+increaseBtn.addEventListener("click", handleClicl);
+
+function handleClicl (event) {
+     // поточні розміри квадрата
+    const currentWidth = boxElement.offsetWidth;
+    const currentHeight = boxElement.offsetHeight;
+    if (event.target.id === 'decrease') {
+            // Зменшуємо квадрат на 20px
+        boxElement.style.width = Math.max(currentWidth - 20, 20) + 'px';
+        boxElement.style.height = Math.max(currentHeight - 20, 20) + 'px';
+    } else if (event.target.id === 'increase') {
+        // Збільшуємо квадрат на 20px
+         boxElement.style.width = Math.max(currentWidth + 20, 20) + 'px';
+         boxElement.style.height = Math.max(currentHeight + 20, 20) + 'px';
+    }
+}
 
 
 
+// № 4 : Form Events, Input, Focus, Blur and Submit.
+
+// Використовуй шаблон форми з файлу html.
+
+// 1 - При події `input`, якщо користувач ввів в поле більше 
+// 6 символів то додати клас `success`. Якщо ж символів менше аніж 6,
+// то клас `error`
+const input = document.querySelector("input");
+input.addEventListener("input", handleInput);
+input.addEventListener("focus", handlFocus);
+input.addEventListener("blur", handleBlur);
+input.addEventListener("submit", handleSubmit);
+
+
+function handleInput (event) {
+    
+    const inputValue = event.target.value.length;
+    console.log(inputValue);
+
+    if (inputValue === 0) {
+
+  input.classList.remove("error", "success");
+     } else if(inputValue >= 6) {
+        input.classList.add("success");
+        input.classList.remove("error");
+
+    } else {
+        input.classList.add("error");
+        input.classList.remove("success");
+    }
+}
+
+
+
+
+
+
+// 2 - При події `focus` зроби перевірку на пустоту поля інпута,
+// якщо ж поле пусте, то зроби `outline` => `'3px solid red'`,
+// якщо при фокусі поле непусте, то `outline` => `'3px solid green'`
+function handlFocus (event) {
+    const focusValue =event.target.value.length;
+    if (focusValue === 0){
+        event.target.style.outline = '3px solid red';
+    } else {
+        event.target.style.outline = '3px solid green';
+    }
+
+}
+
+// 3 - При події `blur` зроби перевірку на пустоту поля інпута,
+// якщо ж поле пусте, то зроби `outline` => `'3px solid red'`, 
+// якщо при фокусі поле непусте, то `outline` => `'3px solid lime'`
+function handleBlur (event) {
+    
+}
+
+// 4 - При події `submit`. Відміни поведінку браузера по змовчуванню.
+// Дістань данні з інпуту і чек боксу, зроби перевірку, 
+// що інпут не порожній, також, що нажатий чек бокс у положення true,
+// якщо користувач все виконав вірно, збери данні (userName)
+// у обьект і виведи у консоль. У разі, якщо користувач не виконав
+// одну із умов, виведи повідомлення. Також при події інпут реалізуй додавання 
+// ім`я користувача у span, замість слова "Anonymous".
+// Якщо користувач ввів ім`я, а потім видалив, зроби так,
+// щоб на місце повернулось дефолтне знаяення "Anonymous".
+// При відправці форми, очисти інпут, верни чек бокс у положення 
+// false, верни дефолтне значення "Anonymous" у span.
+function handleSubmit (event) {
+    event.preventDefault();
+    const inputValue = input.value;
+    const checkbox = document.querySelector('input[type="checkbox"]');
+    const isChecked = checkbox.checked;
+    const userNameSpan = document.querySelector('.user-name');
+
+    if (inputValue !== '' && isChecked) {
+        const userData = {
+            userName: inputValue
+        };
+        console.log(userData);
+    
+} else {
+    console.log('Будь ласка, введіть ім`я та погодьтесь з умовами');
+       // Підсвітка помилок
+        if (inputValue === '') input.style.outline = '3px solid red';
+        if (!isChecked) checkbox.style.outline = '3px solid red';    
+}
+}
 
 
 

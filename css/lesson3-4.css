@@ -129,3 +129,11 @@ span {
 .active {
     background-color: red;
 }
+.btn {
+    margin: 5px;
+    padding: 10px 20px;
+    border: rgba(34, 60, 80, 0.2);
+    border-radius: 10px;
+    background-color: #8bc34a;
+    color: white;
+}
