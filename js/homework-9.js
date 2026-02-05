@@ -17,6 +17,44 @@ console.log(kind);
 console.log(localStorage.getItem(clas));
 
 localStorage.removeItem(clas);// удаляет из локального хранилища элемент с ключом "user-class"
-localStorage.clear(); // очищает все локальное хранилище
+//localStorage.clear(); // очищает все локальное хранилище
 
 
+
+
+const form = document.querySelector(".feedback-form");
+const textarea = form.querySelector("textarea");
+form.addEventListener("submit", handleFormSubmit);
+
+
+textarea.addEventListener("input", onTextareaInput);
+populateTextarea();
+
+//записывает в локальное хранилище текущее значение текстареа при вводе данных
+function onTextareaInput(event) {
+    const message = event.target.value;
+    console.log('Користувач ввів:', message);
+    localStorage.setItem("key", message);
+}
+
+//достає  із локального хранилища і виводить у текстарею дані, якщо вони там є якщо немає то залишає текстарею пустою
+ function populateTextarea() {
+    const newMessage = localStorage.getItem("key");
+    console.log('Значення з localStorage:', newMessage);
+    if (newMessage !== null) {
+        textarea.value = newMessage;
+        
+    }
+ };
+
+//обрабатывает отправку формы, очищает локальное хранилище и форму при отправке
+function handleFormSubmit(event) {
+event.preventDefault();
+event.target.reset();
+localStorage.removeItem("key");
+console.log("Форма відправлена!");
+if (textarea.value.trim() === ""){
+    alert("Заповніть поле!");
+}
+
+}
