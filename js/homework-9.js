@@ -58,3 +58,57 @@ if (textarea.value.trim() === ""){
 }
 
 }
+//----------------------------------
+document.addEventListener('DOMContentLoaded', function() {
+    const secrecy = "formData";  // змінили ключ
+    const form = document.querySelector(".feedback-form");
+    const emailInput = form.querySelector('input[name="email"]');
+    const textarea = form.querySelector("textarea");
+    
+    // Слухачі для обох полів
+    emailInput.addEventListener("input", saveFormData);
+    textarea.addEventListener("input", saveFormData);
+    
+    populateForm();
+
+    // Зберігає обидва поля
+    function saveFormData() {
+        const formData = {
+            email: emailInput.value,
+            message: textarea.value
+        };
+        localStorage.setItem(secrecy, JSON.stringify(formData));
+        console.log('Збережено:', formData);
+    }
+
+    // Завантажує обидва поля
+    function populateForm() {
+        const savedData = localStorage.getItem(secrecy);
+        
+        if (savedData) {
+            const formData = JSON.parse(savedData);
+            emailInput.value = formData.email || '';
+            textarea.value = formData.message || '';
+            console.log('Завантажено:', formData);
+        }
+    }
+
+    // Очищення при submit
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        
+        if (emailInput.value.trim() === "" || textarea.value.trim() === "") {
+            alert("Заповніть всі поля!");
+            return;
+        }
+        
+        console.log('Відправка:', {
+            email: emailInput.value,
+            message: textarea.value
+        });
+        
+        // Очищуємо форму і localStorage
+        form.reset();
+        localStorage.removeItem(secrecy);
+    });
+});
