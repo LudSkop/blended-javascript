@@ -112,3 +112,5 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.removeItem(secrecy);
     });
 });
+
+//localStorage.clear();
