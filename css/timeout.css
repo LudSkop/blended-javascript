@@ -1,0 +1,32 @@
+
+
+body {
+  margin: 16px;
+  text-align: center;
+  
+}
+.start-btn {
+  display: none;      /* показуємо кнопку */
+
+}
+.make.is-visible {
+  width: 50px;
+  display: block;
+  margin: 0 auto;
+  border: darkblue solid 2px;
+  padding: 10px; 
+  background-color: bisque;
+  border-radius: 10px;
+}
+/* Коли .is-visible додається до <p> */
+.make.is-visible .start-btn {
+
+  display: block;      /* показуємо кнопку */
+  width: 50px;         /* ширина кнопки */
+  margin: 10px auto 0; /* відступ зверху + по центру */
+  border: darkblue solid 2px;
+  padding: 10px;
+  background-color: aquamarine;
+  border-radius: 10px;
+}
+

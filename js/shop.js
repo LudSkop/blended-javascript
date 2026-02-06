@@ -87,9 +87,7 @@ productsContainer.addEventListener("click", handlerEdd);
     localStorage.setItem(PRODUCT_LS_key, JSON.stringify(products));
     console.log(localStorage.getItem(PRODUCT_LS_key));
     alert(`Товар "${currentProduct.name}" додано до кошика`);
-   
-    
-
  }
- //localStorage.clear();
+
+
 
