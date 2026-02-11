@@ -49,7 +49,58 @@ function handletextClick(event){
 function hideText(){
   text.classList.remove("is-visible");
 }
+//const currentTime = new Date();
 
+//console.log("сьогодні день неділі:" ,currentTime.getDay());
+//console.log("сьогодні число:",currentTime.getDate());
+//console.log("сьогодні місяць (починає з 0- січень-0):",currentTime.getMonth());
+//console.log("сьогодні рік:",currentTime.getFullYear());
+
+
+
+//currentTime.setDate(16);
+//currentTime.setMonth(4)
+//currentTime.setFullYear(1980);
+
+//console.log(currentTime);
+
+//const date1 = Date.now();
+
+//setTimeout(() => {
+  //const date2 = Date.now();
+  //console.log(date2 - date1);
+//}, 1000);
+
+
+const startBtn = document.querySelector("button[data-action-start]");
+const stopBtn = document.querySelector("button[data-action-stop]");
+const clockface = document.querySelector(".clockface");
+
+
+
+class Timer {
+  start() {
+    const startTime = Date.now();
+    setInterval(() => {
+      const currentTime = Date.now();
+      const deltaTime = startTime - currentTime;
+      const time = this.getTimeComponent(deltaTime);
+      console.log(time);
+
+    }, 3000);
+  }
+    getTimeComponent(time) {
+        const hours = Math.floor(time % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+        const mins = Math.floor(time % (1000 * 60 * 60) / (1000 * 60));
+        const secs = Math.floor(time % (1000 * 60) / 1000);
+
+        return { hours, mins, secs }
+    };
+};
+const timer = new Timer();
+console.log(timer.start);
+
+startBtn.addEventListener("click", timer.start.bind(timer));
 
 
  
